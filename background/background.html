@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css background</title>
+  <style>
+    body {
+      background: #bbb;
+    }
+    .base{
+      width: 200px;
+      font-size: 12px;
+      height: 200px;
+      border: 2px solid #fff;
+      float: left;
+      margin-right: 10px;
+      margin-top: 10px; 
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <!-- base -->
+  <!-- 无背景 -->
+  <div class="base">
+    <small>
+      width: 200px;
+      height: 200px;
+      border: 2px solid #fff;
+      float: left;
+      margin-right: 10px;
+      margin-top: 10px; 
+      color: #fff;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+    </small>
+  </div>
+  <!-- green -->
+  <!-- 纯色填充背景 -->
+  <style>
+    .green {
+      background: green;
+    }
+  </style>
+  <div class="base green">background: green;</div>
+  <!-- radial-gradient //crimson to skyblue -->
+  <!-- 中心渐变填充背景 -->
+  <style>
+    .gradient {
+      background:  radial-gradient(crimson, skyblue);
+    }
+  </style>
+  <div class="base gradient">background: radial-gradient(crimson, skyblue);</div>
+  <!-- //green to skyblue -->
+  <style>
+    .gradient.green-blue{
+      background: radial-gradient(green, skyblue);
+    }
+  </style>
+  <div class="base gradient green-blue">background: radial-gradient(green, skyblue);</div>
+  <!-- //content-box crimson to skyblue -->
+  <style>
+    .content-box.gradient.crimson {
+      background: content-box radial-gradient(crimson, skyblue);
+    }
+  </style>
+  <div class="base gradient content-box crimson">background: content-box radial-gradient(crimson, skyblue);</div>
+  <!-- content-box geen to skyblue -->
+  <style>
+    .content-box.gradient.green {
+      background: content-box radial-gradient(green, skyblue);
+    }
+  </style>
+  <div class="base gradient content-box green">background: content-box radial-gradient(green, skyblue);</div>
+
+  <!-- https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png -->
+  <!-- https://upload-images.jianshu.io/upload_images/12041061-abe4a784df43272b.jpg -->
+  <!-- 多张背景图 -->
+  <style>
+    .more-images{
+      background-image: 
+      url(https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png),
+      url(https://upload-images.jianshu.io/upload_images/12041061-abe4a784df43272b.jpg);
+    }
+  </style>
+  <div class="base more-images">
+    background-image:url(), url(),url()...;
+  </div>
+  <!-- 多张背景图 样式设置1 size-->
+  <style>
+    .more-images.set-style1{
+      background-image: 
+      url(https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png),
+      url(https://upload-images.jianshu.io/upload_images/12041061-abe4a784df43272b.jpg);
+
+      background-size: 100%, 10%;
+      background-repeat: space;
+    }
+  </style>
+  <div class="base more-images set-style1">
+    background-image:url(), url(),url()...;
+    background-size: 100%, 10%,...;
+  </div>
+  <!-- 多张背景图 样式设置2 repeat-->
+  <style>
+    .more-images.set-style2{
+      font-size: 1.5rem;
+      overflow: auto;
+      /* 多图 */
+      background-image: 
+      url(https://upload-images.jianshu.io/upload_images/12041061-95393ded037c7fb5.jpg), /* 4 最上层图(眼珠)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png), /* 3 中间图(图标列表)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png), /* 2 中间图(蜥蜴)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-abe4a784df43272b.jpg); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+    }
+
+    /* 滚动条 */
+    .set-style2::-webkit-scrollbar{
+      opacity: 0;
+      width:8px;
+    }
+    .set-style2::-webkit-scrollbar-thumb{
+      opacity: 0.2;
+      background: rgba(32, 163, 230, 0.4);
+      width: 8px;
+      border-radius: 10%;
+    }
+    .set-style2::-webkit-scrollbar-button,
+    .set-style2::-webkit-scrollbar-corner,
+    .set-style2::-webkit-scrollbar-track,
+    .set-style2::-webkit-scrollbar-track-piece{
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+  </style>
+  <div class="base more-images set-style2">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment1 -->
+  <style>
+    .attachment1{
+      background-attachment: local, local, local, local;
+    }
+  </style>
+  <div class="base more-images set-style2 attachment1">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment2 -->
+  <style>
+    .attachment2{
+      background-attachment: local, local, local, scroll;
+    }
+  </style>
+  <div class="base more-images set-style2 attachment2">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment3 -->
+  <style>
+    .attachment3{
+      background-attachment: local, local, scroll, scroll;
+    }
+  </style>
+  <div class="base more-images set-style2 attachment3">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment4 -->
+  <style>
+    .attachment4{
+      background-attachment: local, scroll, scroll, scroll;
+      background-color: lightgreen
+    }
+  </style>
+  <div class="base more-images set-style2 attachment4">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment5 -->
+  <style>
+    .attachment5{
+      background-attachment: scroll, scroll, scroll, scroll;
+
+    }
+  </style>
+  <div class="base more-images set-style2 attachment5">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background-attachment5 -->
+  <style>
+    .attachment.fixed{
+      background-attachment: fixed;
+
+    }
+  </style>
+  <div class="base more-images set-style2 attachment fixed">
+      /* 多图 */
+      background-image: 
+      url(), /* 4 最上层图(眼珠)*/
+      url(), /* 3 中间图(图标列表)*/
+      url), /* 2 中间图(蜥蜴)*/
+      url(); /* 1 底层图(月球)*/
+      /* 尺寸 */
+      background-size: 20%, 140%, 50%, 80%; /* 4, 3， 2， 1*/
+      /* 重复 */
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      /* 位置 x*/
+      background-position-x: right, left, right, center;
+      /* 位置y */
+      background-position-y: bottom, bottom, bottom, center;
+  </div>
+  <!-- background 简写 -->
+  <style>
+    .simple{
+      background:  
+      url(https://upload-images.jianshu.io/upload_images/12041061-95393ded037c7fb5.jpg) left 15%/20% 40% no-repeat local border-box content-box, /* 最上层图(眼珠)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right center / 100% auto no-repeat local content-box content-box, /*  中间图(图标列表) 设置content-box 被裁剪*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right top / 100% auto no-repeat local border-box border-box, /*  中间图(图标列表)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right bottom / 100% auto no-repeat local border-box content-box, /*  中间图(图标列表) 被裁剪*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png) 80% 20%/ 30% auto no-repeat local border-box border-box, /* 2 中间图(蜥蜴)*/
+      url(https://upload-images.jianshu.io/upload_images/12041061-abe4a784df43272b.jpg); /* 1 底层图(月球)*/
+    }
+  </style>
+  <div class="base simple"></div>
+  <!-- radial-gradient -->
+  <style>
+      .gradient{
+        background:  
+        url(https://upload-images.jianshu.io/upload_images/12041061-95393ded037c7fb5.jpg) left 15%/20% auto no-repeat local border-box content-box, /* 最上层图(眼珠)*/
+        url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right center / 100% auto no-repeat local content-box content-box, /*  中间图(图标列表) 设置content-box 被裁剪*/
+        url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right top / 100% auto no-repeat local border-box border-box, /*  中间图(图标列表)*/
+        url(https://upload-images.jianshu.io/upload_images/12041061-f40c4e55bcdd1e86.png) right bottom / 100% auto no-repeat local border-box content-box, /*  中间图(图标列表) 被裁剪*/
+        url(https://upload-images.jianshu.io/upload_images/12041061-1b34cb94b686e162.png) 80% 20%/ 30% auto no-repeat local border-box border-box, /* 2 中间图(蜥蜴)*/
+        radial-gradient(green, skyblue);
+      }
+    </style>
+  <div class="base gradient"></div>
+</body>
+</html>
